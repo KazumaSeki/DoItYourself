@@ -1,0 +1,42 @@
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-6">
+        DoItYourselfは「やってみよう」という意味で、最近ではD.I.Yという呼び方で有名となっている。<br>
+        当サイトは皆さんの「やってみよう！」という思いで作成した作品を共有する場です。自分自身の作品を投稿してみたり、他の多くのDIYerの作品を見てみよう！
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @recipes.each do |recipe| %>
+      <div class="column is-4">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <%= link_to recipe_path(recipe) do %>
+                 <%= image_tag recipe.image.url %>
+                <% end %>
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <div class="title is-5">
+                    <%= recipe.title %>
+                  </div>
+                </div>
+              </div>
+              <div class="content">
+                <time><%= recipe.updated_at.strftime("%Y年%m月%d日投稿") %></time>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
