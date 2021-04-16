@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DoItYourself</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <a href="top"></a>
+    <% if flash[:notice] %>
+      <div class="notification is-success">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="notification is-warning">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+
+    <nav class="navbar is-light">
+      <div class="navbar-brand">
+        <%= link_to recipes_path, class: "navbar-item" do %>
+          <h1 class="title is-1" style="font-family: cursive;">Do It Youreself</h1>
+        <% end %>
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <% if user_signed_in? %>
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="field is-grouped">
+                    <p class="control">
+                      <%= link_to '作品を投稿する', new_recipe_path, class: 'button is-white' %>
+                    </p>
+                    <p class="control">
+                      <%= link_to "投稿一覧", root_path, class: " button is-white" %>
+                    </p>
+                    <p class="control">
+                      <%= link_to "DIYer", users_path, class: " button is-white" %>
+                    </p>
+                    <p class="control">
+                      <%= link_to "マイページ", user_path(current_user), class: "button is-white" %>
+                    </p>
+                    <p class="control">
+                      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'button is-white' %>
+                    </p>
+                  </div>
+              </div>
+            </div>
+        <% else %>
+          <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="field is-grouped">
+                    <div class="control">
+                      <%= link_to '投稿一覧', root_path, class: 'button is-white' %>
+                    </div>
+                    <div class="control">
+                      <%= link_to 'DIYer', users_path, class: 'button is-white' %>
+                    </div>
+                    <p class="control">
+                      <%= link_to 'アカウント登録', new_user_registration_path, class: 'button is-white' %>
+                    </p>
+                    <p class="control">
+                      <%= link_to 'ログイン', new_user_session_path, class: 'button is-white' %>
+
+                      <p class="control">
+                        <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post,  class: 'button is-white' %>
+                      </p>
+                    </p>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+    </nav>
+    <%= yield %>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <%= link_to "#top", class:"title" do %>
+          <h2 class="title is-3" style="font-family: cursive;">Do It Youreself</h2>
+        <% end %>
+        <p>
+          Copyright 2021 KazumaSeki.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
