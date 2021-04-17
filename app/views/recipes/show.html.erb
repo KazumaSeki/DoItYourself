@@ -67,12 +67,16 @@
         </div>
         <nav class="panel mt-5">
           <p class="panel-heading">コメント</p>
-            <div id="comments_area">
-              <div class="panel-block",id="comments_area">
-                  <%= render partial: 'comments/index', locals: { comments: @comments } %>
+          <% if user_signed_in? %>
+            <%= render partial: 'comments/form', locals: { comment: @comment, recipe: @recipe } %>
+          <% end %>
+          <div class="panel-block">
+            <div class="comments_index">
+              <div id="comments_area">
+                <%= render partial: 'comments/index', locals: { comments: @comments } %>
               </div>
-              <%= render partial: 'comments/form', locals: { comment: @comment, recipe: @recipe } %>
             </div>
+          </div>
         </nav>
       </div>
     </div>

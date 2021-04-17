@@ -1,20 +1,22 @@
-<% comments.each do |comment| %>
-  <div>
-    <a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a>
+<div class="comment">
+  <% comments.each do |comment| %>
+  <div class="comment_list">
+    <a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a><br>
     <%= comment.content %>
     <% if comment.user.id == current_user.id %>
-      <br>
-      投稿日：<%= comment.created_at.to_s(:datetime_jp) %>
-        <%= link_to recipe_comment_path(comment.recipe_id, comment.id), method: :delete, remote: true, data: {confirm: "削除しますか？"} do %>
-          <span class="panel-icon">
-            <i class="fas fa-trash"></i>
-          </span>
-        <% end %>
-      <hr>
+    <br>
+    投稿日：<%= comment.created_at.to_s(:datetime_jp) %>
+    <%= link_to recipe_comment_path(comment.recipe_id, comment.id), method: :delete, remote: true, data: {confirm: "削除しますか？"} do %>
+    <span class="panel-icon">
+      <i class="fas fa-trash-alt"></i>
+    </span>
+    <% end %>
+    <hr>
     <% else %>
-      <br>
-        投稿日：<%= comment.created_at.to_s(:datetime_jp) %>
-      <hr>
+    <br>
+    投稿日：<%= comment.created_at.to_s(:datetime_jp) %>
+    <hr>
     <% end %>
   </div>
-<% end %>
+  <% end %>
+</div>

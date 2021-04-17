@@ -1,14 +1,14 @@
-<%= form_with(model: [@recipe, @comment], url:recipe_comments_path(@recipe), remote: :true) do |f| %>
+<%= form_for [@recipe, @comment], remote: true do |f| %>
   <div class="field">
-    <div class="control">
+    <div class="control mt-3 mx-2">
       <%= f.text_field :content, class:"input", placeholder:"コメント" %>
       <%= f.hidden_field :recipe_id, value: @recipe.id %>
     </div>
   </div>
-  <br>
   <div class="field is-grouped">
-    <div class="control">
-      <%= f.submit 'コメントする', class:"button is-link form__submit mb-2 ml-2" %>
+    <div class="control ml-2">
+      <%= f.submit 'コメントする', class:"button is-link form_submit" %>
     </div>
   </div>
+  <hr>
 <% end %>
