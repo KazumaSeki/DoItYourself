@@ -12,6 +12,5 @@ Rails.application.routes.draw do
 
   resources :recipes do
     resources :likes, only: %i[create destroy]
-    resources :comments, only: :create
   end
 end
