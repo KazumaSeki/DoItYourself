@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i(show edit update destroy)
-  before_action :authenticate_user!, except: %i(index)
+  before_action :set_recipe, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index]
 
   def index
     @recipes = Recipe.all
@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
   def show
     @@like = Like.new
     @comment = Comment.new
+    @comments = @recipe.comments.includes(:user)
     @comments = @recipe.comments.order(created_at: :desc)
   end
 
@@ -26,8 +27,7 @@ class RecipesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @recipe.update(recipe_params)
@@ -43,11 +43,12 @@ class RecipesController < ApplicationController
   end
 
   private
-    def set_recipe
-      @recipe = Recipe.find(params[:id])
-    end
 
-    def recipe_params
-      params.require(:recipe).permit%i(title content image)
-    end
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def recipe_params
+    params.require(:recipe).permit % i(title(content(image)))
+  end
 end
