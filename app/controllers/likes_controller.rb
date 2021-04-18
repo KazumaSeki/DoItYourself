@@ -1,18 +1,17 @@
 class LikesController < ApplicationController
-  before_action :recipe_params
+  before_action :set_recipe
 
   def create
-    like = current_user.likes.new(recipe.id: @recipe.id)
-    like.save
+    @like = Like.new(user_id: current_user.id, recipe_id: @recipe.id)
+    @like.save
   end
 
   def destroy
-    @like = Like.find_by(user_id: current_user.id, recipe_id: @recipe.id).destroy
+    @like =Like.find(user_id: cirrent_user.id, recipe_id: @recipe.id)
   end
 
   private
-  def recipe_params
-    @recipe = Recipe.find(params[:recipe_id])
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
   end
-
 end
