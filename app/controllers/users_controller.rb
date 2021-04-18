@@ -1,16 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i(show edit update)
-  before_action :authenticate_user!, except: %i(index)
+  before_action :set_user, only: %i[show edit update]
+  before_action :authenticate_user!, except: %i[index]
 
   def index
     @users = User.all
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)
@@ -21,11 +19,12 @@ class UsersController < ApplicationController
   end
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    def user_params
-      params.require(:user).permit%i(username email profile profile_image)
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit % i(username(email(profile(profile_image))))
+  end
 end
