@@ -13,7 +13,7 @@ User.create!(
       email: 'guest@example.com',
       password: '123456',
       username: 'ゲストユーザー',
-      profile: 'ご覧いただきありがとうございます！今後新しい機能をどんどん追加していきます！',
+      profile: 'ご覧いただきありがとうございます！今後新しい機能をどんどん追加していきます！'
     },
     {
       email: 'yamadatarou@hoge.com',

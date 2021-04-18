@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable
 
   has_many :recipes
   has_many :likes
@@ -15,6 +15,6 @@ class User < ApplicationRecord
   end
 
   def already_liked?(recipe)
-    self.likes.exists?(recipe_id: recipe.id)
+    likes.exists?(recipe_id: recipe.id)
   end
 end
