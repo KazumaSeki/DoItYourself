@@ -6,12 +6,12 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
 
-  root to: "recipes#index"
+  root to: 'recipes#index'
 
-  resources :users, only: %i(index show edit update)
+  resources :users, only: %i[index show edit update]
 
   resources :recipes do
-    resources :likes, only: %i(create destroy)
-    resources :comments, only: %i(create destroy)
+    resources :likes, only: %i[create destroy]
+    resources :comments, only: :create
   end
 end
