@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @users = User.order(created_at: :desc)
   end
 
   def show; end
