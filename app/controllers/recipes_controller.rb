@@ -7,7 +7,6 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @@like = Like.new
     @comment = Comment.new
     @comments = @recipe.comments.includes(:user)
     @comments = @recipe.comments.order(created_at: :desc)
