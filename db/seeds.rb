@@ -16,28 +16,28 @@ User.create!(
       profile: 'ご覧いただきありがとうございます！今後新しい機能をどんどん追加していきます！'
     },
     {
-      email: 'yamadatarou@hoge.com',
+      email: 'yamadatarou@example.com',
       password: 'tarou12',
       username: '山田太郎',
       profile: 'DIY歴10年です。様々な作品を投稿しています。',
       profile_image: File.open('./app/assets/images/山田太郎のアイコン.png')
     },
     {
-      email: 'suzukiitirou@hoge.com',
+      email: 'suzukiitirou@example.com',
       password: 'itirou34',
       username: '鈴木一郎',
       profile: '山田さんの弟子です。いいDIYerになれるよう努力しています！',
       profile_image: File.open('./app/assets/images/鈴木一郎のアイコン.png')
     },
     {
-      email: 'satouhanako@hoge.com',
+      email: 'satouhanako@example.com',
       password: 'hanako56',
       username: '佐藤花子',
       profile: 'DIY初心者です。みなさんアドバイスをください！',
       profile_image: File.open('./app/assets/images/佐藤花子のアイコン.png')
     },
     {
-      email: 'saitou@hoge.com',
+      email: 'saitou@example.com',
       password: 'saitou78',
       username: '斉藤元気',
       profile: 'これからたくさん投稿します！お楽しみに！',
