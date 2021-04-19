@@ -10,9 +10,9 @@
 User.create!(
   [
     {
-      email: 'guest@example.com',
+      email: 'guest@guest.com',
       password: '123456',
-      username: 'ゲストユーザー',
+      username: 'ゲスト',
       profile: 'ご覧いただきありがとうございます！今後新しい機能をどんどん追加していきます！'
     },
     {
