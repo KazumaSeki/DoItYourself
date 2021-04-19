@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :users, only: %i[index show edit update]
 
   resources :recipes do
-    resources :likes, only: %i[create destroy]
+    resources :comments, only: :create
   end
 end
