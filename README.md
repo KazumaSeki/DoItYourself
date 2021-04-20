@@ -23,6 +23,7 @@ DIYで作成した作品を写真投稿するアプリです。
 - pry_byebug
 - pry-rails
 - raspec-rails
+#### 学習中(今後実装します)
 - factory_bot_rails
 - database_cleaner
 - rubocop
